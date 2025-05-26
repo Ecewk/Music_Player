@@ -8,6 +8,8 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+        id("org.openjfx.javafxplugin") version "0.1.0"
+
 }
 
 repositories {
@@ -38,8 +40,6 @@ application {
     // Define the main class for the application.
     mainClass = "org.example.App"
         applicationDefaultJvmArgs = listOf(
-        "--module-path", 
-        "${System.getProperty("user.home")}/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-sdk/21.0.2/*/javafx-sdk-21.0.2/lib",
         "--add-modules", 
         "javafx.controls,javafx.fxml"
         
@@ -49,4 +49,8 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+javafx {
+    version = "21.0.2"
+    modules = listOf("javafx.controls", "javafx.fxml")
 }

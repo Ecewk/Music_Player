@@ -3,10 +3,13 @@
  */
 package org.example;
 
-import main.Main;
+import org.ui.UiStarter;
+
+import javafx.application.Application;
 
 public class App {
     public static void main(String[] args) {
-        new Main.main(args);
+        Application.launch(UiStarter.class, args);
+
     }
 }
